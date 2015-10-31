@@ -91,26 +91,27 @@ def compPlay():
 		return
 
 def playerPlay():	
-	number = input("Which square would you like to pick? ")
-	number -= 1
-	x = int(math.ceil(int(number)/3))
-	y = (number % 3) 
-	coordinate = coor(x,y)
+	while True:
+		number = input("Which square would you like to pick? ")
+		number -= 1
+		x = int(math.ceil(int(number)/3))
+		y = (number % 3) 
+		coordinate = coor(x,y)
 
-	if(coordinate in center):
-		center.remove(coordinate)
-		playerCoor.append(coordinate)
-		return
-	elif(coordinate in corners):
-		corners.remove(coordinate)
-		playerCoor.append(coordinate)
-		return
-	elif(coordinate in edges):
-		edges.remove(coordinate)
-		playerCoor.append(coordinate)
-		return
-	else: 
-		pass
+		if(coordinate in center):
+			center.remove(coordinate)
+			playerCoor.append(coordinate)
+			return
+		elif(coordinate in corners):
+			corners.remove(coordinate)
+			playerCoor.append(coordinate)
+			return
+		elif(coordinate in edges):
+			edges.remove(coordinate)
+			playerCoor.append(coordinate)
+			return
+
+		print "Pick another square!"
 
 def check():
 	if(len(playerCoor)>=3):
